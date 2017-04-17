@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="billApp">
+
+<head>
+    <title>User Details</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="/angular/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/UserDetails.js"></script>
+    <style>
+    tr.spaceUnder > td {
+        padding-bottom: 1em;
+        padding-top: 25px;
+    }
+    </style>
+</head>
+
+<body ng-controller="billAppCtrl">
+    <center>
+        <h1>User Details</h1>
+        <table>
+            <tr class="spaceUnder">
+                <td>
+                    <th>Name:</th>
+                    <th>
+                        <input type="text" name="name" ng-model="user.name" />
+                        <br>
+                    </th>
+                </td>
+            </tr>
+            <tr ng-init="mycheckbox1='sms'" class="spaceUnder">
+                <td>
+                    <th>
+                    </th>
+                    <th>
+                        <center>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active" ng-click="mycheckbox1='email'">
+                                    <input type="radio" name="options" id="option1" autocomplete="off"> Email
+                                </label>
+                                <label class="btn btn-primary" ng-click="mycheckbox1='sms'">
+                                    <input type="radio" name="options" id="option2" autocomplete="off"> SMS
+                                </label>
+                            </div>
+                        </center>
+                    </th>
+                </td>
+            </tr>
+            <tr ng-show="mycheckbox1=='sms'" class="spaceUnder">
+                <td>
+                    <th>Phone no: </th>
+                    <th>
+                        <input type="text" ng-model="user.phone" />
+                    </th>
+                </td>
+            </tr>
+            <tr ng-show="mycheckbox1=='email'" class="spaceUnder">
+                <td>
+                    <th>Email:</th>
+                    <th>
+                        <input type="text" ng-model="user.email" />
+                    </th>
+                </td>
+            </tr>
+            <tr ng-hide="mycheckbox1=='email'" class="spaceUnder">
+                <td>
+                    <th>Message_Parts: </th>
+                    <th>
+                        <input type="text" name="message_part" ng-model="user.message_part" />
+                    </th>
+                </td>
+            </tr>
+            <tr class="spaceUnder">
+                <td>
+                    <th>Attempts:</th>
+                    <th>
+                        <input type="text" name="attempt" ng-model="user.attempt" required="" />
+                    </th>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <th>
+                    </th>
+                    <th colspan="2">
+                        <center>
+                            <input type="button" class="btn btn-primary" ng-click="insert()" value="Submit" />
+                           <input type="button" class="btn btn-primary" ng-click="show()" value="Show" />
+                        </center>
+                    </th>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>
