@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="billApp">
+
+<head>
+    <title>Generate Bill</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="/angular/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/UserDetails.js"></script>
+    <style>
+    tr.spaceUnder > td {
+        padding-bottom: 1em;
+        padding-top: 25px;
+    }
+    
+    input[type=datetime-local] {
+        border-radius: 2px;
+        padding: 10px 10px;
+        /*margin: 2px 0;*/
+    }
+    </style>
+</head>
+
+<body ng-controller="billGenCtrl">
+    <div style="padding-top: 2%;padding-left: 35%;">
+        <div style="width:440px;height: 35px; background-color: #ECCC9C;color: white;">
+            <center>
+                <h2> Generate Bill</h2></center>
+        </div>
+        <table>
+            <tr class="spaceUnder">
+                <td>
+                    <th>From:</th>
+                    <th>To:</th>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <td>
+                        <input type="datetime-local" />
+                    </td>
+                    <td>
+                        <input type="datetime-local" />
+                    </td>
+                </td>
+            </tr>
+            <tr class="spaceUnder">
+                <td>
+                    <th colspan="2" style="padding-top: 10px;" >
+                        <center>
+                            <input type="button" class="btn btn-primary active" ng-click="show()" value="Submit" />
+                        </center>
+                    </th>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
